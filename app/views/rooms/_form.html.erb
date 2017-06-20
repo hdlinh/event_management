@@ -1,0 +1,28 @@
+<%= form_for(room) do |f| %>
+  <% if room.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(room.errors.count, "error") %><%= t("error2") %></h2>
+
+      <ul>
+      <% room.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= f.label :ro_name, t("rooms.th_name") %>
+    <%= f.text_field :ro_name, class: "form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :ro_type, t("rooms.th_type") %>
+    <%= f.text_field :ro_type, class: "form-control" %>
+  </div>
+
+  <div class="actions form-group">
+    <%= f.submit %>
+  </div>
+<% end %>
+<%= link_to t("rooms.button.back"), rooms_path, class: "btn btn-default" %>

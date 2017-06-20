@@ -1,0 +1,53 @@
+<div id="notice" class="row">
+
+  <% if flash[:alert] %>
+    <p class="flash-error"><%= flash[:alert] %></p>
+  <% end %>
+  <% if flash[:notice] %>
+    <p class="flash-notice"><%= flash[:notice] %></p>
+  <% end %>
+</div>
+
+<h3><%= t("rooms.title") %></h3>
+
+<%= form_tag destroy_rooms_path_url, method: :delete do %>
+  <table class="table table-hover, table-responsive">
+    <thead>
+      <tr>
+        <th><%= t("rooms.th_del") %></th>
+        <th><%= t("rooms.th_id") %></th>
+        <th><%= t("rooms.th_name") %></th>
+        <th><%= t("rooms.th_type") %></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @rooms.each do |room| %>
+        <tr>
+          <td>
+            <%= check_box_tag "del_room_ids[]", room.id %>
+          </td>
+          <td><%= room.id %></td>
+          <td><%= room.ro_name %></td>
+          <td><%= room.ro_type %></td>
+          <td>
+            <%= link_to t("rooms.button.edit"), edit_room_path(room), class: "btn btn-default" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="row">
+    <div class="col-md-1">
+      <%= link_to t("rooms.button.new"), new_room_path, class: "btn btn-default" %>
+    </div>
+    <div class="col-md-1">
+      <%= submit_tag t("rooms.button.del"), data: { confirm: t("rooms.confirm") }, class: "btn btn-default" %>
+    </div>
+    <div class="col-md-7 paging">
+      <%= will_paginate @rooms, renderer: BootstrapPagination::Rails %>
+    </div>
+  </div>
+<% end %>

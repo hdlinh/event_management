@@ -1,0 +1,33 @@
+<%= form_for(event) do |f| %>
+  <% if event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(event.errors.count, "error") %><%= t(:error2) %></h2>
+
+      <ul>
+      <% event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= f.label :ev_name %>
+    <%= f.text_field :ev_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ev_description %>
+    <%= f.text_field :ev_description %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :ev_date %>
+    <%= f.date_select :ev_date %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

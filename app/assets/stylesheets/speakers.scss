@@ -1,0 +1,66 @@
+// Place all the styles related to the Speakers controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.paging{
+  display:block;
+  margin-top:-22px;
+  padding-bottom:5px;
+}
+.flash-error{
+  background: yellow;
+  color: red;
+}
+.flash-notice{
+  background: green;
+  color: white;
+}
+
+p{
+  padding:4px;
+  margin:0px;
+}
+.row{
+  border:1px solid #fffccc;
+  padding:4px;
+}
+.col-md-3{
+  padding-left:0px;
+}
+.glyphicon{
+  font-size: 25px;
+  color: green;
+  padding-left:5px;
+}
+.tag-tooltip{
+  display:block;
+  width:75px;
+  height:30px;
+  min-width:75px;
+  outline:none;
+  position:relative;
+
+}
+.row_infor{
+  float:left;
+  width:81.5%;
+  height:auto;
+}
+.row_1{
+  float:left;
+  width:100%;
+  border:1px solid #fffccc;
+}
+.row_avatar{
+  float:right;
+  width:18%;
+  height:200px;
+}
+.row_avatar img{
+  width:100%;
+  height:100%;
+}
+a:hover{
+  color: red;;
+  background:none;
+}
+

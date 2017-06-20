@@ -1,0 +1,12 @@
+room:
+  max_name_length: 6
+  min_name_length: 3
+  max_type_length: 200
+  per_page: 8
+speaker:
+  per_page: 8
+  phone_len: 10..12
+  min_phone_len: 10
+  max_phone_len: 12
+
+

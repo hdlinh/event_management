@@ -1,0 +1,56 @@
+<div id="notice" class="row">
+  <% if flash[:alert] %>
+    <p class="flash-error"><%= flash[:alert] %></p>
+  <% end %>
+  <% if flash[:notice] %>
+    <p class="flash-notice"><%= flash[:notice] %></p>
+  <% end %>
+</div>
+<title><%= t("speaker.title") %></title>
+<%= form_tag destroy_speakers_path_url, method: :delete do %>
+  <table class="table table-hover, table-responsive">
+    <thead>
+      <tr>
+        <th><%= t("speaker.th_del") %></th>
+        <th><%= t("speaker.th_id") %></th>
+        <th><%= t("speaker.th_full_name") %></th>
+        <th><%= t("speaker.th_major") %></th>
+        <th><%= t("speaker.th_email") %></th>
+        <th><%= t("speaker.th_phone") %></th>
+        <th><%= t("speaker.th_avatar") %></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @speakers.each do |speaker| %>
+        <tr>
+          <td>
+            <%= check_box_tag "del_speaker_ids[]", speaker.id %>
+          </td>
+          <td><%= speaker.id %></td>
+          <td><%= link_to speaker.sp_firstname + " "+ speaker.sp_lastname, speaker %></td>
+          <td><%= speaker.sp_major %></td>
+          <td><%= speaker.sp_email %></td>
+          <td><%= speaker.sp_phone %></td>
+          <td>
+              <%= link_to '<span class="glyphicon glyphicon-user"></span>'.html_safe, speakers_path, class: "tag-tooltip", "data-toggle": "tooltip" , "data-placement": "top", title: image_tag(speaker.sp_avatar) %>
+          </td>
+          <td><%= link_to t("speaker.button.edit"), edit_speaker_path(speaker), class: "btn btn-default" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="row">
+    <div class="col-md-1">
+      <%= link_to t("speaker.button.new"), new_speaker_path, class: "btn btn-default" %>
+    </div>
+    <div class="col-md-1">
+      <%= submit_tag t("speaker.button.del"), data: { confirm: t("speaker.confirm") }, class: "btn btn-default" %>
+    </div>
+    <div class="col-md-7 paging">
+      <%= will_paginate @rooms, renderer: BootstrapPagination::Rails %>
+    </div>
+  </div>
+<% end %>
+
