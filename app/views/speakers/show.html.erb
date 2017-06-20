@@ -1,0 +1,56 @@
+<title><%= t("speaker.title") %></title>
+<div class="notice" class="row">
+  <% if flash[:alert] %>
+    <p class="flash-error"><%= flash[:alert] %></p>
+  <% end %>
+  <% if flash[:notice] %>
+    <p class="flash-notice"><%= flash[:notice] %></p>
+  <% end %>
+</div>
+<h3><%= t("speaker.infor") %></h3>
+<div class="container-fluid">
+  <!-- Row 1 -->
+  <div class="row">
+    <div class="col-md-3">
+      <p><strong><%= t("speaker.th_fn") %>:</strong>
+        <%= @speakers.sp_firstname %>
+      </p>
+    </div>
+    <div class="col-md-2">
+      <p><strong><%= t("speaker.th_ln") %></strong>
+        <%= @speakers.sp_lastname %>
+      </p>
+    </div>
+    <div class="col-md-3">
+      <p><strong><%= t("speaker.th_phone") %>:</strong>
+        <%= @speakers.sp_phone %>
+      </p>
+    </div>
+    <div class="col-md-3">
+      <p><strong><%= t("speaker.th_email") %>:</strong>
+        <%= @speakers.sp_email %>
+      </p>
+    </div>
+  </div>
+  <!-- Row 2 -->
+  <div class="row">
+    <div class="row_infor">
+      <div class="row_1">
+        <p><strong><%= t("speaker.th_major") %>:</strong>
+          <%= @speakers.sp_major %>
+        </p>
+      </div>
+      <div class="row_1">
+        <p><strong><%= t("speaker.th_desc") %>:</strong>
+          <%= @speakers.sp_description %>
+        </p>
+      </div>
+    </div>
+    <div class="row_avatar">
+        <%= image_tag(@speakers.sp_avatar.to_s) %>
+    </div>
+  </div>
+</div>
+
+<%= link_to t("speaker.button.edit"), edit_speaker_path(@speakers), class: "btn btn-default" %>
+<%= link_to t("speaker.button.back"), speakers_path, class: "btn btn-default" %>

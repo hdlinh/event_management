@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tf_title: MyString
+  tf_start: 2017-06-26 22:00:05
+  tf_end: 2017-06-26 22:00:05
+  sp_id: 1
+  ev_id: 1
+  ro_id: 1
+
+two:
+  tf_title: MyString
+  tf_start: 2017-06-26 22:00:05
+  tf_end: 2017-06-26 22:00:05
+  sp_id: 1
+  ev_id: 1
+  ro_id: 1

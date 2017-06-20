@@ -1,0 +1,40 @@
+<div class="notice" class="row">
+  <% if flash[:alert] %>
+    <p class="flash-error"><%= flash[:alert] %></p>
+  <% end %>
+  <% if flash[:notice] %>
+    <p class="flash-notice"><%= flash[:notice] %></p>
+  <% end %>
+</div>
+<title><%= t("tf.title") %></title>
+<h3><%= t("tf.title") %></h3>
+<%= form_tag destroy_time_frames_path_url, method: :delete do %>
+<table class="table table-hover table-responsive">
+  <thead>
+    <tr align="center">
+      <th><%= t("tf.th_del") %></th>
+      <th><%= t("tf.th_id") %></th>
+      <th><%= t("tf.th_title") %></th>
+      <th><%= t("tf.th_start") %></th>
+      <th><%= t("tf.th_end") %></th>
+      <th><%= t("tf.th_speaker") %></th>
+      <th><%= t("tf.th_event") %></th>
+      <th><%= t("tf.th_room") %></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <%=  render partial: "tf_list", collection: @time_frames %>
+</table>
+<div class="row">
+    <div class="col-md-2">
+      <%= link_to t("tf.button.new"), new_time_frame_path, class: "btn btn-default" %>
+    </div>
+    <div class="col-md-1">
+      <%= submit_tag t("tf.button.del"), data: { confirm: t("tf.confirm") }, class: "btn btn-default" %>
+    </div>
+    <div class="col-md-9 paging">
+      <%= will_paginate @time_frames, renderer: BootstrapPagination::Rails %>
+    </div>
+  </div>
+<% end %>

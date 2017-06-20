@@ -1,0 +1,19 @@
+<div class="row speaker_list">
+  <!-- Row Picture of Speaker -->
+  <% @speakers.each do |sp| %>
+    <div class="speaker_col">
+      <div id="speaker_img">
+        <%= image_tag(sp.sp_avatar)  %>
+      </div>
+      <div id="speaker_infor">
+        <div class="row">
+          <p><strong><%= link_to sp.sp_firstname+ " " + sp.sp_lastname, speaker_path(sp.id) %></strong></p>
+        </div>
+        <div class="row">
+          <p><strong><%= t("speaker.major") %>: </strong><%= sp.sp_major %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+

@@ -1,0 +1,16 @@
+// Place all the styles related to the Rooms controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.paging{
+  display:block;
+  margin-top:-22px;
+  padding-bottom:5px;
+}
+.flash-error{
+  background: yellow;
+  color: red;
+}
+.flash-notice{
+  background: green;
+  color: white;
+}

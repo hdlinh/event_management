@@ -1,0 +1,39 @@
+<%= form_for(time_frame) do |f| %>
+  <%= render "shared/errors_messages", object: @time_frame %>
+
+  <div class="field form-group">
+    <%= f.label :Event, t("tf.lb_event") %>
+    <%= f.select :ev_id, Event.all.collect {|x| [x.ev_name, x.id]}, { include_blank: t("tf.select")}, class: "form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :tf_title, t("tf.lb_title") %>
+    <%= f.text_field :tf_title, class: "form-control" %>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <%= f.label :tf_start, t("tf.lb_start") %>
+      <%= f.datetime_select :tf_start, order: [:hour, :minute, :day, :month, :year], class: "form-control" %>
+    </div>
+    <div class="col-md-4">
+      <%= f.label :tf_end, t("tf.lb_end") %>
+      <%= f.datetime_select :tf_end, order: [:hour, :minute, :day, :month, :year], class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :Speaker, t("tf.lb_speaker") %>
+    <%= f.select :sp_id, Speaker.all.collect {|x| [x.sp_firstname + " " + x.sp_lastname, x.id]}, {include_blank: t("tf.select") }, class: "form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :Room, t("tf.lb_room") %>
+    <%= f.select :ro_id, Room.all.collect {|x| [x.ro_name, x.id]}, { include_blank: t("tf.select") }, class: "form-control" %>
+  </div>
+
+  <div class="actions form-group">
+    <%= f.submit %>
+  </div>
+<% end %>
+<%= link_to t("time_frame.button.back"), time_frames_path, class: "btn btn-default" %>

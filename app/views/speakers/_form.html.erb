@@ -1,0 +1,42 @@
+<%= form_for(speaker) do |f| %>
+  <%= render "shared/errors_messages", object: @speaker %>
+
+  <div class="field form-group">
+    <div class="col-md-3">
+      <%= f.label :sp_firstname, t("speaker.th_fn") %>
+      <%= f.text_field :sp_firstname, class: "form-control" %>
+    </div>
+    <div class="col-md-2">
+      <%= f.label :sp_lastname, t("speaker.th_ln") %>
+      <%= f.text_field :sp_lastname, class: "form-control" %>
+    </div>
+    <div class="col-md-3">
+      <%= f.label :sp_phone, t("speaker.th_phone") %>
+      <%= f.telephone_field :sp_phone, class: "form-control" %>
+    </div>
+    <div class="col-md-4">
+      <%= f.label :sp_email, t("speaker.th_email") %>
+      <%= f.text_field :sp_email, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :sp_major, t("speaker.th_major") %>
+    <%= f.text_field :sp_major, class: "form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :sp_description, t("speaker.th_desc") %>
+    <%= f.text_area :sp_description, size: t("speaker.size"), class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :sp_avatar, t("speaker.th_avatar") %>
+    <%= f.file_field :sp_avatar, class: "form-control" %>
+  </div>
+
+  <div class="actions form-group">
+    <%= f.submit %>
+  </div>
+<% end %>
+<%= link_to t("speaker.button.back"), speakers_path, class: "btn btn-default" %>

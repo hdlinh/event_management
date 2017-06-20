@@ -1,0 +1,39 @@
+<div class="notice" class="row">
+  <% if flash[:alert] %>
+    <p class="flash-error"><%= flash[:alert] %></p>
+  <% end %>
+  <% if flash[:notice] %>
+    <p class="flash-notice"><%= flash[:notice] %></p>
+  <% end %>
+</div>
+<title><%= t("event.title") %></title>
+<h3><%= t("event.list") %></h3>
+<%= form_tag destroy_events_path_url, method: :delete do %>
+  <table class="table table-hover table-responsive">
+    <thead>
+      <tr>
+        <th><%= t("event.th_del") %></th>
+        <th><%= t("event.th_id") %></th>
+        <th><%= t("event.th_name") %></th>
+        <th><%= t("event.th_desc") %></th>
+        <th><%= t("event.th_date") %></th>
+        <th></th>
+      </tr>
+    </thead>
+    <%= render partial: "event", collection: @events %>
+  </table>
+  <div class="row">
+    <div class="col-md-1">
+      <%= link_to t("event.button.new"), new_event_path, class: "btn btn-default" %>
+    </div>
+    <div class="col-md-1">
+      <%= submit_tag t("event.button.del"), data: { confirm: t("event.confirm") }, class: "btn btn-default" %>
+    </div>
+    <div class="col-md-2">
+      <%= link_to t("tf.button.new"), new_time_frame_path, class: "btn btn-default" %>
+    </div>
+    <div class="col-md-7 paging">
+      <%= will_paginate @rooms, renderer: BootstrapPagination::Rails %>
+    </div>
+  </div>
+<% end %>
