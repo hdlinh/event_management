@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ev_name: MyString
+  ev_description: MyString
+  string: MyString
+  ev_date: 2017-06-20
+
+two:
+  ev_name: MyString
+  ev_description: MyString
+  string: MyString
+  ev_date: 2017-06-20

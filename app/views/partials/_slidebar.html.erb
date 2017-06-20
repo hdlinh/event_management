@@ -1,0 +1,11 @@
+<title><%= t("event.title") %></title>
+<div class="event_list">
+  <ul class="list-group">
+    <% @events.each do |evt| %>
+      <li>
+        <%= link_to evt.ev_name, event_path(evt), class:"list-group-item" %>
+      </li>
+    <% end %>
+  </ul>
+ </div>
+

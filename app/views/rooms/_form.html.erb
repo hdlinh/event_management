@@ -1,0 +1,18 @@
+<%= form_for(room) do |f| %>
+ <%= render "shared/errors_messages", object: @room %>
+
+  <div class="field form-group">
+    <%= f.label :ro_name, t("rooms.th_name") %>
+    <%= f.text_field :ro_name, class: "form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :ro_type, t("rooms.th_type") %>
+    <%= f.text_field :ro_type, class: "form-control" %>
+  </div>
+
+  <div class="actions form-group">
+    <%= f.submit %>
+  </div>
+<% end %>
+<%= link_to t("rooms.button.back"), rooms_path, class: "btn btn-default" %>
