@@ -1,0 +1,24 @@
+<%= form_for(event) do |f| %>
+  <%= render "shared/errors_messages", object: @event %>
+
+  <div class="field form-group">
+    <%= f.label :ev_name, t("event.th_name") %>
+    <%= f.text_field :ev_name, class: "form-control"  %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :ev_description, t("event.th_desc") %>
+    <%= f.text_area :ev_description, size: t("event.size"), class: "form-control"  %>
+  </div>
+
+
+  <div class="field form-group">
+    <%= f.label :ev_date, t("event.th_date") %>
+    <%= f.date_select :ev_date, order: [:day, :month, :year], class: "form-control"  %>
+  </div>
+
+  <div class="actions form-group">
+    <%= f.submit %>
+  </div>
+<% end %>
+<%= link_to t("event.button.back"), events_path, class: "btn btn-default" %>

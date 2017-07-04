@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+  </head>
+
+  <body>
+  <div class="container-fluid">
+    <!-- Menu -->
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Event manager system</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/">Home</a></li>
+          <li><%= link_to t("menu.room"), rooms_path %></li>
+          <li><%= link_to t("menu.speaker"), speakers_path %></li>
+          <li><%= link_to t("menu.event"), events_path %></li>
+          <li><%= link_to t("menu.evt_detail"), time_frames_path + "/list" %></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <section>
+    <div class="container">
+      <div class="row">
+        <% if params[:controller] == "time_frames" && params[:action] == "index" %>
+         <div class="col-md-9">
+            <%= render "speakers/infor" %>
+         </div>
+          <div class="col-md-3">
+            <%= render "partials/slidebar" %>
+          </div>
+        <% else %>
+          <%= yield %>
+        <% end %>
+
+        <% if params[:controller] == "events" && params[:action] == "show" %>
+         <div class="col-md-9">
+
+         </div>
+          <div class="col-md-3">
+            <%= render "partials/slidebar" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="row">
+      <p><%= t("copyright") %></p>
+    </div>
+  </footer>
+  </body>
+</html>

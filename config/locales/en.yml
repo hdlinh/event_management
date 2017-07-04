@@ -1,0 +1,150 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  hello: "Hello world"
+  error2: "Please choose Item to Delete"
+  copyright: "Copyright &copy; 2017, All Rights Reserved"
+  menu:
+    room: "Room Manager"
+    speaker: "Speaker Manager"
+    event: "Event Manager"
+    evt_detail: "Event Time Frame"
+  rooms:
+    head_title: "Event Management"
+    title: "Room Management"
+    error: "Please checking to checkbox to DELETED Room"
+    msg_create: "Room was successfully CREATED"
+    msg_update: "Room was successfully UPDATED"
+    msg_delete: "Room was successfully DELETED"
+    th_del: "Delete ID"
+    th_name: "Room name"
+    th_type: "Room type"
+    th_id: "Room ID"
+    edit_title: "Editing A Room"
+    new_title: "Adding New Room"
+    load_error: "Error: Not Found Room ID"
+    confirm: "Are you sure?"
+    button:
+      edit: "Edit"
+      new: "New Room"
+      del: "Delete All"
+      back: "Go Back"
+  event:
+    th_name: "Event name"
+    th_desc: "Event description"
+    th_date: "Event date Openning"
+    th_id: "Event ID"
+    th_del: "Delete ID"
+    title: "Event Management"
+    list: "Event list"
+    edit_title: "Editing A Event"
+    new_title: "Adding New Event"
+    load_err: "Error: Not found Event ID"
+    msg_create: "Event was successfully CREATED"
+    msg_update: "Event was successfully UPDATED"
+    msg_delete: "Event was successfully DELETED"
+    edit_title: "Editing A Event"
+    new_title: "Adding New Event"
+    size: "20x5"
+    load_error: "Error: Not Found Event ID"
+    confirm: "Are you sure?"
+    button:
+      edit: "Edit"
+      new: "New Event"
+      del: "Delete All"
+      back: "Go Back"
+  speaker:
+    title: "Speaker Management"
+    th_fn: "First name"
+    th_ln: "Last name"
+    th_full_name: "Speaker name"
+    th_major: "Major"
+    th_email: "E-mail"
+    th_phone: "Phone number"
+    th_desc: "Description"
+    th_avatar: "Image"
+    th_id: "ID"
+    th_del: "Delete"
+    edit_title: "Editing A Speaker"
+    new_title: "Adding New Speaker"
+    load_err: "Error: Not found Speaker ID"
+    msg_create: "Speaker was successfully CREATED"
+    msg_update: "Speaker was successfully UPDATED"
+    msg_delete: "Speaker was successfully DELETED"
+    edit_title: "Editing A Speaker"
+    new_title: "Adding New Speaker"
+    load_error: "Error: Not Found Speaker ID"
+    confirm: "Are you sure?"
+    size: "20x5"
+    infor: "Speaker information"
+    email_val: "Email khong hop le"
+    phone_val: "Phone phai co do dai tu 10 den 12 so"
+    phone_num: "Phone phai la so"
+    invalid_val: "Thong tin dua vao khong duoc Rong"
+    avatar_val: "Phai co anh chan dung cua Speaker"
+    button:
+      edit: "Edit"
+      new: "New Speaker"
+      del: "Delete All"
+      back: "Go Back"
+  tf:
+    title: "An Event in detail management"
+    th_title: "The topic in Event"
+    th_start: "Time to begin"
+    th_end: "Time to finish"
+    th_speaker: "Speaker"
+    th_event: "In the Event"
+    th_room: "the Room"
+    th_id: "ID"
+    th_del: "Delete"
+    lb_title: "Title of the topic in Event"
+    lb_start: "Time to begin the topic"
+    lb_end: "Time to finish the topic"
+    lb_speaker: "Choose the Speaker to presenter the topic"
+    lb_event: "Choose the Event that contain this Topic"
+    lb_room: "Choose the Room for Event"
+    edit_title: "Editing A Event in detail"
+    new_title: "Adding New Event in detailr"
+    load_err: "Error: Not found A Event in detail ID"
+    msg_create: "A Event in detail was successfully CREATED"
+    msg_update: "A Event in detail was successfully UPDATED"
+    msg_delete: "A Event in detail was successfully DELETED"
+    edit_title: "Editing A Event in detail"
+    new_title: "Adding A Event in detail"
+    load_error: "Error: Not Found A Event in detail ID"
+    confirm: "Are you sure?"
+    invalid_val: "Thong tin dua vao khong duoc Rong"
+    select: "Select One"
+    button:
+      edit: "Edit"
+      new: "New A Event in detail"
+      del: "Delete All"
+      back: "Go Back"
+  date:
+    formats:
+      default: "%m/%d/%Y"
+      short: "%m/%d"
+  time:
+    formats:
+      default: "%m/%d/%Y %H:%M"
+      short: "%H:%M"
+      notime: "%m/%d/%Y"

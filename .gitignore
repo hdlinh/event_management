@@ -42,3 +42,10 @@ bower.json
 
 # Ignore Byebug command history file.
 .byebug_history
+
+#Add database
+/config/database.yml
+
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml

@@ -1,0 +1,13 @@
+<tbody>
+  <tr>
+    <td>
+      <%= check_box_tag "del_event_ids[]", event.id %>
+    </td>
+    <td><%= event.id %></td>
+    <td><%= event.ev_name %></td>
+    <td><%= event.ev_description %></td>
+    <td><%= event.ev_date %></td>
+    <td><%= link_to t("event.button.edit"), edit_event_path(event), class: "btn btn-default" %></td>
+  </tr>
+</tbody>
+

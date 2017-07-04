@@ -1,0 +1,13 @@
+<tbody>
+  <tr>
+    <td>
+      <%= check_box_tag "del_room_ids[]", room.id %>
+    </td>
+    <td><%= room.id %></td>
+    <td><%= room.ro_name %></td>
+    <td><%= room.ro_type %></td>
+    <td>
+      <%= link_to t("rooms.button.edit"), edit_room_path(room), class: "btn btn-default" %>
+    </td>
+  </tr>
+</tbody>

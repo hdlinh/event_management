@@ -1,0 +1,18 @@
+<tbody>
+  <tr>
+    <td>
+      <%= check_box_tag "del_speaker_ids[]", speaker.id %>
+    </td>
+    <td><%= speaker.id %></td>
+    <td><%= link_to speaker.sp_firstname + " "+ speaker.sp_lastname, speaker %></td>
+    <td><%= speaker.sp_major %></td>
+    <td><%= speaker.sp_email %></td>
+    <td><%= speaker.sp_phone %></td>
+    <td>
+      <span class="glyphicon glyphicon-user"></span>
+    </td>
+    <td>
+      <%= link_to t("speaker.button.edit"), edit_speaker_path(speaker), class: "btn btn-default" %>
+    </td>
+  </tr>
+</tbody>
