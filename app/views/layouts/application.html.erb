@@ -2,7 +2,7 @@
 <html>
   <head>
     <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track": "reload" %>
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
     <meta name="viewport" content="width=device-width,initial-scale=1">
   </head>
@@ -41,7 +41,7 @@
 
         <% if params[:controller] == "events" && params[:action] == "show" %>
          <div class="col-md-9">
-
+            <%= render "events/infor" %>
          </div>
           <div class="col-md-3">
             <%= render "partials/slidebar" %>

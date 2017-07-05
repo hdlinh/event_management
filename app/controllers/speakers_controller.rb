@@ -1,5 +1,5 @@
 class SpeakersController < ApplicationController
-  before_action :load_speaker, only: [:edit, :update]
+  before_action :load_speaker, only: [:show, :edit, :update]
 
   def index
     @speakers = Speaker.all.paginate(page: params[:page], per_page: Settings.room.per_page)
@@ -11,9 +11,7 @@ class SpeakersController < ApplicationController
     @events = Event.new
   end
 
-  def show
-    @speakers = Speaker.find_by(id: params[:id])
-  end
+  def show; end
 
   def edit; end
 

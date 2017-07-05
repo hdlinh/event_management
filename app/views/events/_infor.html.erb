@@ -3,8 +3,9 @@
   <% @speakers.each do |sp| %>
     <div class="speaker_col">
       <div id="speaker_img">
-        <%= image_tag(sp.sp_avatar)  %>
+        <%= image_tag (sp.sp_avatar) %>
       </div>
+
       <div id="speaker_infor">
         <div class="row">
           <p><strong><%= link_to "#{sp.sp_firstname} #{sp.sp_lastname}", speaker_path(sp.id) %></strong></p>
@@ -16,4 +17,3 @@
     </div>
   <% end %>
 </div>
-

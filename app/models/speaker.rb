@@ -13,4 +13,11 @@ class Speaker < ApplicationRecord
   validates :sp_email, email_format: { message: I18n.t("speaker.email_val") }
   validates :sp_avatar, presence: { message: I18n.t("speaker.avatar_val") }
 
+   #"SELECT * FROM speakers
+  # INNER JOIN time_frames AS tf ON speakers.id = tf.sp_id
+  # INNER JOIN events ON tf.ev_id = events.id AND events.id = "+ params[:id]
+  scope :load_speaker, ->(evt_id) do
+    joins("INNER JOIN time_frames AS tf ON speakers.id = tf.sp_id
+     INNER JOIN events ON tf.ev_id = events.id AND events.id =", evt_id)
+  end
 end

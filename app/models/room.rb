@@ -1,5 +1,5 @@
 class Room < ApplicationRecord
-  has_one :time_frame, dependent: :destroy
+  has_many :time_frames, dependent: :destroy
 
   validates :ro_name, presence: true, length: {
     minimum: Settings.room.min_name_length,
