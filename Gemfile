@@ -66,6 +66,7 @@ gem "will_paginate-bootstrap"
 # Adding gem config
 gem "config"
 # Adding Upload image gem
+gem "mini_magick"
 gem "carrierwave"
 
 # Adding validate email

@@ -25,7 +25,6 @@ class TimeFramesController < ApplicationController
 
   def create
     @time_frame = TimeFrame.new(time_frame_params)
-    @time_frame.complete
     respond_to do |format|
       if @time_frame.save
         format.html { redirect_to time_frames_url, notice: t("tf.msg_create")  }
