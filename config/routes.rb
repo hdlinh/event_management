@@ -1,5 +1,42 @@
 Rails.application.routes.draw do
-  root "time_frames#index"
+
+  get "admin", to: "admin#index"
+
+  root to: "time_frames#index"
+  devise_for :users, controllers: {
+    sessions: "sessions",
+    registrations: "registrations"
+  }
+
+  devise_scope :user do
+    get "register", to: "registrations#new"
+    post "register", to: "registrations#create"
+    get "login", to: "sessions#new"
+    post "login", to: "sessions#create"
+    delete "sign_in", to: "sessions#destroy"
+  end
+
+  resources :users
+  resources :sessions, only: [:new, :create] do
+    delete :destroy, on: :collection
+  end
+
+
+  match "/users/destroy", to: "user#destroy", via: [:delete], as: :destroy_users_path
+  resources :users
+  resources :users do
+    collection do
+      delete "destroy"
+    end
+  end
+
+  match "/roles/destroy", to: "roles#destroy", via: [:delete], as: :destroy_roles_path
+  resources :roles
+  resources :roles do
+    collection do
+      delete "destroy"
+    end
+  end
 
   match "/time_frames/destroy", to: "time_frames#destroy", via: [:delete], as: :destroy_time_frames_path
   resources :time_frames

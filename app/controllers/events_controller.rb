@@ -1,8 +1,9 @@
 class EventsController < ApplicationController
   before_action :load_event, only: [:show, :edit, :update]
 
+
   def index
-    @events = Event.all.paginate(page: params[:page], per_page: Settings.room.per_page)
+    @events = Event.all.paginate(page: params[:page], per_page: Settings.paging.per_page)
   end
 
   def new
@@ -13,7 +14,7 @@ class EventsController < ApplicationController
     # Lay tat ca thong tin Event de hien thi ra main page - slide bar
     @events = Event.all
     # Lay Tat ca cac thong tin Speaker trong tung Event hien thi ra main page
-    @speakers = Speaker.load_speaker(params[:id])
+    @speakers = @event.speakers
   end
 
   def edit; end
@@ -67,6 +68,4 @@ class EventsController < ApplicationController
     def event_params
       params.require(:event).permit(:ev_name, :ev_description, :ev_date)
     end
-
-
 end

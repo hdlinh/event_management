@@ -1,5 +1,6 @@
 class RoomsController < ApplicationController
-   before_action :load_room, only: [:edit, :update]
+  before_action :load_room, only: [:edit, :update]
+
 
   def index
     @rooms = Room.all.paginate(page: params[:page], per_page: Settings.room.per_page)

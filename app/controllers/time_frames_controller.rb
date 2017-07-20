@@ -2,7 +2,8 @@ class TimeFramesController < ApplicationController
   before_action :load_timeframe, only: [:edit, :update]
 
   def index
-    @time_frames = TimeFrame.all.paginate(page: params[:page], per_page: Settings.time_frame.per_page)
+    @time_frames = TimeFrame.all.paginate(page: params[:page],
+      per_page: Settings.paging.per_page)
     @speakers = Speaker.all
     @events = Event.all
   end
@@ -19,7 +20,7 @@ class TimeFramesController < ApplicationController
   def edit; end
 
   def show
-    @time_frames = TimeFrame.all.paginate(page: params[:page], per_page: Settings.time_frame.per_page)
+    @time_frames = TimeFrame.all.paginate(page: params[:page], per_page: Settings.paging.per_page)
     render action: "index"
   end
 
