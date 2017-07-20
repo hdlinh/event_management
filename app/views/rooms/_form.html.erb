@@ -1,6 +1,5 @@
 <%= form_for(room) do |f| %>
- <%= render "shared/errors_messages", object: @room %>
-
+  <%= render "shared/errors_messages", object: @room %>
   <div class="field form-group">
     <%= f.label :ro_name, t("rooms.th_name") %>
     <%= f.text_field :ro_name, class: "form-control" %>

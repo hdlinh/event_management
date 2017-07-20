@@ -1,0 +1,18 @@
+<%= form_for(role) do |f| %>
+   <%= render "shared/errors_messages", object: @role %>
+
+  <div class="field form-group">
+    <%= f.label :role_name, t("role.lb_name") %>
+    <%= f.text_field :role_name, class: "form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :role_description, t("role.lb_desc") %>
+    <%= f.text_area :role_description, class: "form-control" %>
+  </div>
+
+  <div class="actions form-group"">
+    <%= f.submit %>
+  </div>
+<% end %>
+<%= link_to t("role.button.back"), roles_path, class: "btn btn-default" %>

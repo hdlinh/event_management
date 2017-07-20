@@ -1,0 +1,14 @@
+en:
+  devise_modal:
+    username: "Your username"
+    email: "Your email"
+    password: "Your password"
+    password_confirmation: "Retype your password"
+    remember: "Remember me"
+    sign_up: "Sign up now!"
+    sign_in: "Log in"
+    pass_field: "off"
+    new_user: "New user?"
+  login:
+    invalid: "Invalid user/password combination"
+    logout: "Logged out"

@@ -68,6 +68,8 @@ gem "config"
 # Adding Upload image gem
 gem "mini_magick"
 gem "carrierwave"
+# Adding gem for Authentication
+gem "devise"
 
 # Adding validate email
 gem "validates_email_format_of"
