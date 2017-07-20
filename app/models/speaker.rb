@@ -1,9 +1,6 @@
 class Speaker < ApplicationRecord
   mount_uploader :sp_avatar, ImageUploader
-  belongs_to :events
-
-
-
+  belongs_to :event
 
   validates :sp_firstname, :sp_lastname, :sp_phone,
     :sp_email, presence: { message: I18n.t("invalid_val") }

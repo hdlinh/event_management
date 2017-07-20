@@ -1,6 +1,6 @@
 class SessionsController < Devise::SessionsController
-  #before_action :configure_sign_in_params, only: [:create]
-
+  before_action :prevent_logged_in_user_access, except: :destroy
+  before_action :prevent_unauthorized_user_access, only: :destroy
   # GET /resource/sign_in
   def new
 
@@ -8,28 +8,30 @@ class SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
-    user = User.find_by(username: params[:session][:username].downcase)
-    if user && user.authenticate(params[:session][:encrypted_password])
-      log_in user
-      #params[:session][:remember_me] == Setting.number ? remember(user) : forget(user)
-      # redirect_to user
-      # session[:user_id] = user.id
-      redirect_to url_for(:controller => "time_frames", :action => "index")
+    user = User.find_by(email: login_params[:email])
+    if user
+      pass = User.find_by(password: login_params[:password])
+      if pass
+        log_in(user)
+        #params[:session][:remember_me] == Setting.number ? remember(user) : forget(user)
+        redirect_to users_url, notice: t("login.login")
+      else
+        flash[:alert] = t("login.invalid_pass")
+        render "new"
+      end
     else
-      flash[:alert] = t("login.invalid")
+      flash[:alert] = t("login.invalid_email")
       render "new"
     end
   end
 
   def destroy
-    log_out if logged_in?
-    redirect_to root_path
+    log_out
+    redirect_to new_session_path, notice: t("login.logout")
   end
 
-  # protected
-
-  # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_in_params
-  #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
-  # end
+  protected
+  def login_params
+     params.require(:session).permit(:email, :password)
+  end
 end

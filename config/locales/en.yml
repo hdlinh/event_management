@@ -28,7 +28,6 @@ en:
   phone_val: "Length of Phone number must be in [10-12]"
   phone_num: "Your phone wasn't be number"
 
-
   menu:
     room: "Room Manager"
     speaker: "Speaker Manager"
@@ -39,6 +38,9 @@ en:
     login: "Log in"
     signup: "Register"
     logout: "Log out"
+    account: "Account"
+    profile: "Profile"
+    setting: "Setting"
   nav:
     envent_list: "Browse Event"
     speaker_list: "Browse Speaker"
@@ -188,6 +190,7 @@ en:
       back: "Go Back"
   user:
       title: "User Manager"
+      infor: "Account Infor"
       edit: "Editing User"
       adding: "Adding New User"
       th_id: "ID"
@@ -215,4 +218,3 @@ en:
         new: "New User"
         del: "Delete All"
         back: "Go Back"
-

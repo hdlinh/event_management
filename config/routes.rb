@@ -1,24 +1,23 @@
 Rails.application.routes.draw do
 
-  get "admin", to: "admin#index"
-  get "signup", to: "users#new", as: "signup"
-  get "login", to: "sessions#new", as: "login"
-  get "logout", to: "sessions#destroy", as: "logout"
-
+  root to: "time_frames#index"
   devise_for :users, controllers: {
-    sessions: "sessions"
+    sessions: "sessions",
+    registrations: "registrations"
   }
 
   devise_scope :user do
+    get "register", to: "registrations#new"
+    post "register", to: "registrations#create"
     get "login", to: "sessions#new"
     post "login", to: "sessions#create"
-    get "sign_in", to: "sessions#new"
-    post "sign_in", to: "sessions#create"
+    delete "sign_in", to: "sessions#destroy"
   end
 
   resources :users
-
-  root to: "time_frames#index"
+  resources :sessions, only: [:new, :create] do
+    delete :destroy, on: :collection
+  end
 
   match "/users/destroy", to: "user#destroy", via: [:delete], as: :destroy_users_path
   resources :users
@@ -41,6 +40,7 @@ Rails.application.routes.draw do
   resources :time_frames do
     collection do
       delete "destroy"
+      get   "list"
     end
   end
   match "/speakers/destroy", to: "speakers#destroy", via: [:delete], as: :destroy_speakers_path

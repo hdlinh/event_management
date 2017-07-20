@@ -3,7 +3,7 @@
 
   <div class="field form-group">
     <%= f.label :Event, t("tf.lb_event") %>
-    <%= f.select :ev_id, Event.all.collect {|x| [x.ev_name, x.id]}, { include_blank: t("tf.select")}, class: "form-control" %>
+    <%= f.select :event_id, Event.all.collect {|x| [x.ev_name, x.id]}, { include_blank: t("tf.select")}, class: "form-control" %>
   </div>
 
   <div class="field form-group">
@@ -24,7 +24,7 @@
 
   <div class="field form-group">
     <%= f.label :Speaker, t("tf.lb_speaker") %>
-    <%= f.select :sp_id, Speaker.all.collect {|x| [x.sp_firstname + " " + x.sp_lastname, x.id]}, {include_blank: t("tf.select") }, class: "form-control" %>
+    <%= f.select :speaker_id, Speaker.all.collect {|x| [x.sp_firstname + " " + x.sp_lastname, x.id]}, {include_blank: t("tf.select") }, class: "form-control" %>
   </div>
 
   <div class="field form-group">

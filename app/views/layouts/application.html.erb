@@ -11,11 +11,7 @@
   <body>
     <div class="container">
       <%= render "shared/flash" %>
-      <% if logged_in? %>
-        <%= render "shared/header" %>
-      <% else %>
-        <%= render "shared/nav" %>
-      <% end %>
+      <%= render "layouts/header" %>
 
       <div class="row">
         <% if params[:controller] == "time_frames" && params[:action] == "index" %>
@@ -28,7 +24,6 @@
         <% else %>
           <%= yield %>
         <% end %>
-
         <% if params[:controller] == "events" && params[:action] == "show" %>
           <div class="col-md-9">
             <%= render "events/infor" %>

@@ -1,6 +1,5 @@
 class EventsController < ApplicationController
   before_action :load_event, only: [:show, :edit, :update]
-  before_action :authenticate_user!, except: [:show]
 
   def index
     @events = Event.all.paginate(page: params[:page], per_page: Settings.paging.per_page)

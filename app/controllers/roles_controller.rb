@@ -1,5 +1,4 @@
 class RolesController < ApplicationController
-  before_action :authenticate_user!
   before_action :load_role, only: [:edit, :update]
 
   def index

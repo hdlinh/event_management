@@ -1,6 +1,7 @@
-<%= form_for(@user) do |f| %>
-  <%= render "shared/errors_messages", object: @user %>
+<title><%= t("title") %></title>
+<h2><%= t("register.title") %></h2>
 
+<%= form_for(resource_name, url: register_path(resource_name)) do |f| %>
   <div class="row">
     <div class="field form-group col-md-6">
       <%= f.label :username, t("user.name") %>
@@ -64,4 +65,7 @@
     </div>
   </div>
 <% end %>
-<%= link_to t("user.button.back"), users_path, class: "btn btn-default" %>
+<div class="panel-footer">
+  <%= render "devise/shared/links" %>
+</div>
+
