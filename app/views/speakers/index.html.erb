@@ -1,11 +1,4 @@
-<div class="notice" class="row">
-  <% if flash[:alert] %>
-    <p class="flash-error"><%= flash[:alert] %></p>
-  <% end %>
-  <% if flash[:notice] %>
-    <p class="flash-notice"><%= flash[:notice] %></p>
-  <% end %>
-</div>
+<%= render "shared/flash" %>
 <title><%= t("speaker.title") %></title>
 <h1><%= t("speaker.edit_title") %></h1>
 <%= form_tag destroy_speakers_path_url, method: :delete do %>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+  </head>
+
+  <body>
+
+    <div class="container">
+      <%= render "shared/flash" %>
+
+      <!-- Check user signed in -->
+      <% if user_signed_in? %>
+        <%= render "layouts/header" %>
+        <div class="row">
+          <% if params[:controller] == "time_frames" && params[:action] == "index" %>
+            <div class="col-md-9">
+                <%= render "speakers/infor" %>
+            </div>
+            <div class="col-md-3">
+                <%= render "partials/slidebar" %>
+            </div>
+          <% end %>
+
+          <% if params[:controller] == "events" && params[:action] == "show" %>
+            <div class="col-md-9">
+              <%= render "events/infor" %>
+            </div>
+            <div class="col-md-3">
+              <%= render "partials/slidebar" %>
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+        <section>
+          <%= render "shared/devise_modal" %>
+        </section>
+      <% end %>
+
+    </div>
+    <footer>
+      <div class="row footer">
+        <p><%= t("copyright") %></p>
+      </div>
+    </footer>
+  </body>
+</html>

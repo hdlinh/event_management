@@ -4,8 +4,8 @@ class CreateTimeFrames < ActiveRecord::Migration[5.0]
       t.string :tf_title
       t.datetime :tf_start
       t.datetime :tf_end
-      t.integer :sp_id
-      t.integer :ev_id
+      t.integer :speaker_id
+      t.integer :event_id
       t.integer :ro_id
 
       t.timestamps

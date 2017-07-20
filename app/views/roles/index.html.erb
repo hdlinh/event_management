@@ -1,0 +1,28 @@
+<%= render "shared/flash" %>
+<title><%= t("role.title") %></title>
+<h3><%= t("role.title") %></h3>
+<%= form_tag destroy_roles_path_url, method: :delete do %>
+<table class="table table-hover table-responsive">
+  <thead>
+    <tr>
+      <th><%= t("role.th_del") %></th>
+      <th><%= t("role.th_id") %></th>
+      <th><%= t("role.lb_name") %></th>
+      <th><%= t("role.lb_desc") %></th>
+      <th></th>
+    </tr>
+  </thead>
+  <%=  render partial: "role", collection: @roles, as: :role %>
+</table>
+<div class="row">
+    <div class="col-md-1">
+      <%= link_to t("role.button.new"), new_role_path, class: "btn btn-default" %>
+    </div>
+    <div class="col-md-1">
+      <%= submit_tag t("role.button.del"), data: { confirm: t("role.confirm") }, class: "btn btn-default" %>
+    </div>
+    <div class="col-md-7 paging">
+      <%= will_paginate @roles, renderer: BootstrapPagination::Rails %>
+    </div>
+  </div>
+<% end %>
