@@ -1,0 +1,7 @@
+<% if logged_in? %>
+  It's <%= Time.now %>
+  <h3>You have successfully signed in</h3>
+<% else %>
+  <%= render "sessions/new" %>
+  <p> © <%= Date.today.year %> My App.</p>
+<% end %>

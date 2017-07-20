@@ -1,0 +1,48 @@
+<head>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
+  <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+</head>
+<%= render "shared/flash" %>
+<title><%= t("title") %></title>
+<div class="login">
+  <h2><%= t("devise_modal.sign_in") %></h2>
+  <%= form_for(:session, url: sign_in_path) do |f| %>
+
+    <div class="field">
+      <%= f.label :username, t("devise_modal.username") %><br />
+      <%= f.text_field :username, autofocus: true, class: "form-control", icon: "user" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password, t("devise_modal.password") %><br />
+      <%= f.password_field :password, autocomplete: t("devise_modal.pass_field"), class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password_confirmation, t("devise_modal.password_confirmation") %><br />
+      <%= f.password_field :password_confirmation, autocomplete: t("devise_modal.pass_field"), class: "form-control" %>
+    </div>
+
+
+    <div class="field"">
+      <%= f.label :remember_me do %>
+        <%= f.check_box :remember_me %>
+        <span> <%= t("devise_modal.remember") %></span>
+        <% end %>
+    </div>
+
+
+    <div class="actions form-group">
+      <%= f.submit t("devise_modal.sign_in"), class: "btn btn-primary" %>
+    </div>
+  <% end %>
+  <p>
+    <%= t("devise_modal.new_user") %>
+    <%= link_to t("devise_modal.sign_up"), signup_path %>
+  </p>
+</div>
+
+

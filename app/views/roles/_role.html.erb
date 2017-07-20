@@ -1,0 +1,11 @@
+<tbody>
+  <tr>
+    <td>
+      <%= check_box_tag "del_role_ids[]", role.id %>
+    </td>
+    <td><%= role.id %></td>
+    <td><%= role.role_name %></td>
+    <td><%= role.role_description %></td>
+    <td><%= link_to t("role.button.edit"), edit_role_path(role), class: "btn btn-default" %></td>
+  </tr>
+</tbody>

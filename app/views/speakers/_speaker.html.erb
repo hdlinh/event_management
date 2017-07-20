@@ -4,7 +4,7 @@
       <%= check_box_tag "del_speaker_ids[]", speaker.id %>
     </td>
     <td><%= speaker.id %></td>
-    <td><%= link_to speaker.sp_firstname + " "+ speaker.sp_lastname, speaker %></td>
+    <td><%= link_to "#{speaker.sp_firstname} #{speaker.sp_lastname}", speaker %></td>
     <td><%= speaker.sp_major %></td>
     <td><%= speaker.sp_email %></td>
     <td><%= speaker.sp_phone %></td>

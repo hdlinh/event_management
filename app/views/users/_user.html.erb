@@ -1,0 +1,17 @@
+<tbody>
+  <tr>
+    <td>
+      <%= check_box_tag "del_user_ids[]", user.id %>
+    </td>
+    <td><%= user.id %></td>
+    <td><%= user.username %></td>
+    <td><%= user.full_name %></td>
+    <td><%= user.email %></td>
+    <td><%= user.phone %></td>
+    <td><%= user.role.role_name if user.role_id? %></td>
+
+    <td>
+      <%= link_to t("user.button.edit"), edit_user_path(user), class: "btn btn-default" %>
+    </td>
+  </tr>
+</tbody>

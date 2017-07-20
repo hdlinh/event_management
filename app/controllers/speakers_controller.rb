@@ -1,8 +1,9 @@
 class SpeakersController < ApplicationController
   before_action :load_speaker, only: [:show, :edit, :update]
+  before_action :authenticate_user!
 
   def index
-    @speakers = Speaker.all.paginate(page: params[:page], per_page: Settings.room.per_page)
+    @speakers = Speaker.all.paginate(page: params[:page], per_page: Settings.paging.per_page)
     @events = Event.all
   end
 
