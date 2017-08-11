@@ -24,11 +24,11 @@ class Admin::UsersController < ApplicationController
     # byebug
     respond_to do |format|
       if @user.save
-        # log_in @user
-        format.html { redirect_to users_url, notice: t("user.msg_create") }
+        log_in @user
+        format.html { redirect_to admin_user_url, notice: t("user.msg_create") }
         format.json { render :index, status: :created, location: @user }
       else
-        format.html { redirect_to new_users_url, notice: t("errors") }
+        format.html { redirect_to new_admin_user_url, notice: t("errors") }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
@@ -37,7 +37,7 @@ class Admin::UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to users_url, notice: t("user.msg_update") }
+        format.html { redirect_to admin_user_url, notice: t("user.msg_update") }
         format.json { render :index, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -50,10 +50,10 @@ class Admin::UsersController < ApplicationController
     respond_to do |format|
       unless params[:del_user_ids]
         Speaker.delete(params[:del_user_ids])
-        format.html { redirect_to users_url, notice: t("user.msg_delete") }
+        format.html { redirect_to admin_user_url, notice: t("user.msg_delete") }
         format.json { head :no_content }
       else
-        format.html { redirect_to users_url, notice: t("errors") }
+        format.html { redirect_to admin_user_url, notice: t("errors") }
         format.json { render json: @room.errors, status: :unprocessable_entity}
       end
     end
@@ -67,7 +67,7 @@ class Admin::UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:username, :password, :password_confirmation,
+      params.require(:user).permit(:username, :encrypted_password, :password_confirmation,
         :first_name, :last_name, :email, :phone, :role_id)
     end
 end

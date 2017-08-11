@@ -70,6 +70,10 @@ gem "mini_magick"
 gem "carrierwave"
 # Adding gem for Authentication
 gem "devise"
+# Add Gooogle authentication gem
+gem "omniauth-google-oauth2"
+# Figaro: securely configure Rails applications.
+gem "figaro"
 
 # Adding validate email
 gem "validates_email_format_of"

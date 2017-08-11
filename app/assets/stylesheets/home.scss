@@ -9,3 +9,21 @@
 .login h2{
   text-align:center;
 }
+.login .col_login{
+  display: flex;
+  width: 49.6%;
+  float:left;
+}
+.login .btn{
+  width:100%;
+}
+
+.login .btn_register{
+  background-color: #E24825;
+  color: white;
+}
+.login .btn_google{
+  background-color: #E24825;
+  color: white;
+  margin-left:10px;
+}

@@ -6,7 +6,7 @@
       <li><%= link_to t("menu.speaker"), speakers_path %></li>
       <li><%= link_to t("menu.event"), events_path %></li>
       <li><%= link_to t("menu.evt_detail"), controller: "time_frames", action: "list" %></li>
-      <li><%= link_to t("menu.user"), users_path %></li>
+      <li><%= link_to t("menu.user"), admin_users_path %></li>
       <li><%= link_to t("menu.role"), roles_path %></li>
       <li class="dropdown" >
           <%= link_to root_path,
@@ -31,8 +31,9 @@
       <li><%= link_to t("menu.home"), "/"%></li>
       <li><%= link_to t("nav.envent_list"), events_path %></li>
       <li><%= link_to t("nav.speaker"), speakers_path %></li>
-      <li><%= link_to t("menu.login"), login_path %></li>
+      <li><%= link_to t("menu.member"), member_login_path %></li>
       <li><%= link_to t("menu.signup"), register_path %></li>
+      <li><%= link_to t("menu.login"), login_path %></li>
     </ul>
   <% end %>
 </nav>

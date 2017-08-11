@@ -1,0 +1,28 @@
+
+<title><%= t("title") %></title>
+<div class="login">
+  <h2><%= t("devise_modal.member_sign_in") %></h2>
+  <%= form_for(:member, url: member_login_path) do |f| %>
+
+    <div class="field">
+      <%= f.label :email,t("devise_modal.email") %><br />
+      <%= f.text_field :email,  class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password, t("devise_modal.password") %><br />
+      <%= f.password_field :password, class: "form-control" %>
+    </div>
+
+    <div class="actions form-group">
+      <%= f.submit t("devise_modal.sign_in"), class: "btn btn-primary" %>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <div class="col_login">
+      <%= link_to t("register.title"), member_login_path, class: "btn btn_register" %>
+    </div>
+  </div>
+</div>
+

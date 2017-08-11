@@ -9,7 +9,7 @@
 <title><%= t("title") %></title>
 <div class="login">
   <h2><%= t("devise_modal.sign_in") %></h2>
-  <%= form_for(:session, url: login_path) do |f| %>
+  <%= form_for(:user, url: login_path) do |f| %>
 
     <div class="field">
       <%= f.label :email, t("devise_modal.email") %><br />
@@ -27,15 +27,15 @@
         <span> <%= t("devise_modal.remember") %></span>
         <% end %>
     </div>
-
-
     <div class="actions form-group">
       <%= f.submit t("devise_modal.sign_in"), class: "btn btn-primary" %>
     </div>
   <% end %>
-  <p>
-    <%= t("devise_modal.new_user") %>
-    <%= link_to t("register.sign_up"), register_path %>
-  </p>
+
+  <div class="form-group">
+    <div class="col_login">
+      <%= link_to t("register.title"), login_path, class: "btn btn_register" %>
+    </div>
+  </div>
 </div>
 

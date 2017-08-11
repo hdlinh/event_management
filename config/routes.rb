@@ -1,31 +1,52 @@
 Rails.application.routes.draw do
 
+  resources :members
+
+  # get "member_login", to: "sessions#member_login", as: "member_login"
+  # post "member_login", to: "sessions#create_member_login", as: "create_member"
+  # get "member_logout", to: "sessions#member_logout", as: "member_logout"
+
+
+
   root to: "time_frames#index"
+
+  #get "auth/:provider/callback", to: "sessions#omniauth_create"
+  #get "auth/failure", to: redirect("/")
   devise_for :users, controllers: {
     sessions: "sessions",
-    registrations: "registrations"
+    registrations: "registrations",
+    omniauth_callbacks: "users/omniauth_callbacks"
   }
-
-  devise_scope :user do
-    get "register", to: "registrations#new"
-    post "register", to: "registrations#create"
-    get "login", to: "sessions#new"
-    post "login", to: "sessions#create"
-    delete "sign_in", to: "sessions#destroy"
+  # resources :users
+  namespace :admin do
+    resources :users
+    match "/users/destroy", to: "user#destroy", via: [:delete], as: :destroy_users_path
+    # match "/sessions/user", to: "sessions#omniauth_create", via: [:post]
+    resources :users do
+      collection do
+        delete "destroy"
+      end
+    end
   end
 
-  resources :users
+
+
+  devise_scope :user do
+    get "register", to: "members#new"
+    post "register", to: "members#create"
+    get "member_login", to: "sessions#member_login"
+    post "member_login", to: "sessions#create_member_login"
+    get "/sessions/new.user", to: "registrations#new"
+    get "login", to: "sessions#new"
+    post "login", to: "sessions#create"
+    delete "sign_out", to: "sessions#destroy"
+  end
+
   resources :sessions, only: [:new, :create] do
     delete :destroy, on: :collection
   end
 
-  match "/users/destroy", to: "user#destroy", via: [:delete], as: :destroy_users_path
-  resources :users
-  resources :users do
-    collection do
-      delete "destroy"
-    end
-  end
+
 
   match "/roles/destroy", to: "roles#destroy", via: [:delete], as: :destroy_roles_path
   resources :roles

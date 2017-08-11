@@ -3,15 +3,19 @@
   <head>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
+    <%= javascript_include_tag "application" %>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
   </head>
 
   <body>
     <div class="container">
-      <%= render "shared/flash" %>
-      <%= render "layouts/header" %>
+      <div class="row">
+        <%= render "shared/flash" %>
+      </div>
+      <div class="row">
+        <%= render "layouts/header" %>
+      </div>
 
       <div class="row">
         <% if params[:controller] == "time_frames" && params[:action] == "index" %>
@@ -33,11 +37,12 @@
           </div>
         <% end %>
       </div>
-    </div>
-    <footer>
-      <div class="row footer">
-        <p><%= t("copyright") %></p>
-      </div>
+
+      <footer>
+        <div class="row footer">
+          <p><%= t("copyright") %></p>
+        </div>
     </footer>
+    </div>
   </body>
 </html>

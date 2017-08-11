@@ -1,0 +1,25 @@
+<title><%= t("title") %></title>
+<div class="login">
+  <div class="row">
+     <h2><%= t("register.title") %></h2>
+  </div>
+  <%= form_for @member do |f| %>
+    <%= render "shared/errors_messages", object: @member %>
+    <div class="field">
+      <%= f.label :email, t("devise_modal.email") %><br />
+      <%= f.text_field :email, class: "form-control" %>
+    </div>
+    <div class="field">
+      <%= f.label :password, t("devise_modal.password") %><br />
+      <%= f.password_field :password, class: "form-control" %>
+    </div>
+    <div class="field">
+      <%= f.label :password_confirmation, t("user.pwd_confirm")%><br />
+      <%= f.password_field :password_confirmation, class: "form-control" %>
+    </div>
+    <div class="actions col-md-6">
+      <%= f.submit "Sign Up" %>
+    </div>
+  <% end %>
+</div>
+

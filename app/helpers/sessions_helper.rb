@@ -4,8 +4,22 @@ module SessionsHelper
     session[:user_id] = user.id
   end
 
+  def authenticate
+    redirect_to :login unless user_signed_in?
+  end
+
+  def authenticate!
+    if !current_user
+      redirect_to root_url, notice: t('devise.failure.unauthenticated')
+    end
+  end
+
   def current_user
-    @current_user ||= User.find_by(id: session[:user_id])
+    @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
+  end
+
+  def user_signed_in?
+    !!current_user
   end
 
   def current_user? user
@@ -33,5 +47,4 @@ module SessionsHelper
     cookies.delete :user_id
     cookies.delete :remember_token
   end
-
 end

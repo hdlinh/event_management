@@ -71,6 +71,6 @@ class TimeFramesController < ApplicationController
     end
 
     def time_frame_params
-      params.require(:time_frame).permit(:tf_title, :tf_start, :tf_end, :sp_id, :ev_id, :ro_id)
+      params.require(:time_frame).permit(:tf_title, :tf_start, :tf_end, :speaker_id, :event_id, :ro_id)
     end
 end

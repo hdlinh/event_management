@@ -10,17 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20170712022009) do
+ActiveRecord::Schema.define(version: 20171027024258) do
 
   create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "ev_name"
-    t.string   "ev_description"
+    t.text     "ev_description", limit: 65535
     t.date     "ev_date"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
+  create_table "members", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
 
   create_table "roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "role_name"
@@ -28,7 +33,6 @@ ActiveRecord::Schema.define(version: 20170712022009) do
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
   end
-
 
   create_table "rooms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "ro_name"
@@ -43,31 +47,30 @@ ActiveRecord::Schema.define(version: 20170712022009) do
     t.string   "sp_major"
     t.string   "sp_email"
     t.string   "sp_phone"
-    t.string   "sp_description"
+    t.text     "sp_description", limit: 65535
     t.string   "sp_avatar"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "time_frames", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "tf_title"
     t.datetime "tf_start"
     t.datetime "tf_end"
-
-    t.integer  "sp_id"
-    t.integer  "ev_id"
+    t.integer  "speaker_id"
+    t.integer  "event_id"
     t.integer  "ro_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "username",                            null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "username"
+    t.string   "password_digest",        default: ""
     t.string   "first_name",                          null: false
     t.string   "last_name",                           null: false
     t.string   "email",                               null: false
-    t.string   "phone",                               null: false
+    t.string   "phone"
     t.integer  "role_id"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -79,6 +82,8 @@ ActiveRecord::Schema.define(version: 20170712022009) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "provider"
+    t.string   "uid"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

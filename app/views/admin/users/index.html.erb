@@ -1,7 +1,7 @@
 <%= render "shared/flash" %>
 <title><%= t("user.title") %></title>
 <h3><%= t("user.title") %></h3>
-<%= form_tag destroy_users_path_url, method: :delete do %>
+<%= form_tag admin_destroy_users_path_url, method: :delete do %>
   <table class="table table-hover table-responsive">
     <thead>
       <tr>
@@ -19,7 +19,7 @@
   </table>
   <div class="row">
     <div class="col-md-1">
-      <%= link_to t("user.button.new"), new_user_path, class: "btn btn-default" %>
+      <%= link_to t("user.button.new"), new_admin_user_path, class: "btn btn-default" %>
     </div>
     <div class="col-md-1">
       <%= submit_tag t("user.button.del"), data: { confirm: t("user.confirm") }, class: "btn btn-default" %>
